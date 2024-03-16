@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class Move : MonoBehaviour
 {
-    public GameObject mainCamera;
+    //public GameObject mainCamera;
     
     public GameObject player;
     public GameObject portal;
@@ -46,7 +46,7 @@ public class Move : MonoBehaviour
         */
         portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
         x = 0;
-        mainCamera.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
+        //mainCamera.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
         if (Input.GetKeyDown(KeyCode.A) && position != Positions.OnLeft  && !moving)
         {
             if(position == Positions.OnMid)
@@ -88,8 +88,8 @@ public class Move : MonoBehaviour
             player.transform.rotation = Quaternion.Euler(0, 180, 0);
             transform.position = new Vector3(-14, transform.position.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            mainCamera.transform.position = new Vector3(-14, mainCamera.transform.position.y, mainCamera.transform.position.z);
-            mainCamera.transform.rotation = Quaternion.Euler(0, 180, 0);
+            //mainCamera.transform.position = new Vector3(-14, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            //mainCamera.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (other.tag == "Respawn")
         {
