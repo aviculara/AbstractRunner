@@ -80,17 +80,27 @@ public class Move : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*
-        if (other.tag == "FinishLine")
+        
+        if (other.tag == "Portal")
+        {
+            //speed = 0;
+            player.transform.position = new Vector3(-14, player.transform.position.y, player.transform.position.z);
+            player.transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.position = new Vector3(-14, transform.position.y, transform.position.z);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            mainCamera.transform.position = new Vector3(-14, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            mainCamera.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (other.tag == "Respawn")
+        {
+            //speed = 2;
+            
+        }
+        else
         {
             speed = 0;
         }
-        if (other.tag == "CheckPoint")
-        {
-            speed *= 2;
-        }
-        */
-        speed = 0;
+        
     }
 
     private void stopMove()
