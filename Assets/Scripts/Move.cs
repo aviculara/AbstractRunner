@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class Move : MonoBehaviour
 {
-    //public GameObject mainCamera;
     
     public GameObject player;
     public GameObject portal;
@@ -16,6 +15,8 @@ public class Move : MonoBehaviour
     private float pi = 3.14159f;
     private float x;
     private bool moving = false;
+    private int orientation = 1; //-1 on turning
+    
     /*
     private bool onLeft = false;
     private bool onRight = false;
@@ -25,6 +26,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         position = Positions.OnMid;
+        orientation = 1;
     }
     public enum Positions
     {
@@ -46,7 +48,7 @@ public class Move : MonoBehaviour
         */
         portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
         x = 0;
-        //mainCamera.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
+
         if (Input.GetKeyDown(KeyCode.A) && position != Positions.OnLeft  && !moving)
         {
             if(position == Positions.OnMid)
@@ -57,7 +59,7 @@ public class Move : MonoBehaviour
             {
                 position = Positions.OnMid;
             }
-            transform.DOMoveX(transform.position.x - 4, 0.25f).OnComplete(stopMove);
+            transform.DOMoveX(transform.position.x - 4 * orientation, 0.25f).OnComplete(stopMove);
             moving = true;
         }
         else if(Input.GetKeyDown(KeyCode.D) && position != Positions.OnRight && !moving)
@@ -70,7 +72,7 @@ public class Move : MonoBehaviour
             {
                 position = Positions.OnMid;
             }
-            transform.DOMoveX(transform.position.x + 4, 0.25f).OnComplete(stopMove);
+            transform.DOMoveX(transform.position.x + 4 * orientation, 0.25f).OnComplete(stopMove);
             moving = true;
         }
 
@@ -88,8 +90,7 @@ public class Move : MonoBehaviour
             player.transform.rotation = Quaternion.Euler(0, 180, 0);
             transform.position = new Vector3(-14, transform.position.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            //mainCamera.transform.position = new Vector3(-14, mainCamera.transform.position.y, mainCamera.transform.position.z);
-            //mainCamera.transform.rotation = Quaternion.Euler(0, 180, 0);
+            orientation = -1;
         }
         else if (other.tag == "Respawn")
         {
