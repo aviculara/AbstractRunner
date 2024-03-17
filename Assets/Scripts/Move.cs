@@ -13,7 +13,11 @@ public class Move : MonoBehaviour
     public GameObject door;
     public GameObject crate;
 
+    public float max = 23;
+    public float zaxis = 90;
+
     private GameObject[] portals;
+    private GameObject[] coins;
     private int rotation;
     private float pi = 3.14159f;
     private float x;
@@ -31,6 +35,7 @@ public class Move : MonoBehaviour
         position = Positions.OnMid;
         orientation = 1;
         portals = GameObject.FindGameObjectsWithTag("Rotate");
+        coins = GameObject.FindGameObjectsWithTag("Coin");
     }
     public enum Positions
     {
@@ -53,6 +58,11 @@ public class Move : MonoBehaviour
         foreach (GameObject portal in portals)
         {
             portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
+        }
+
+        foreach (GameObject coin in coins)
+        {
+            coin.transform.Rotate(new Vector3(0, max, zaxis) * Time.deltaTime);
         }
         x = 0;
 
@@ -101,9 +111,9 @@ public class Move : MonoBehaviour
             door.transform.DOMoveX(door.transform.position.x - 12, 24f * Time.deltaTime * speed * 2);
             crate.GetComponent<Rigidbody>().isKinematic = false;
         }
-        else if (other.tag == "Respawn")
+        else if (other.CompareTag("Coin"))
         {
-            //speed = 2;
+            other.gameObject.SetActive(false);
             
         }
         else
