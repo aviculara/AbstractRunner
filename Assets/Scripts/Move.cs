@@ -7,10 +7,12 @@ public class Move : MonoBehaviour
 {
     
     public GameObject player;
-    public GameObject portal;
+    //public GameObject portal;
     public float speed = 10;
     public Positions position;
+    public GameObject door;
 
+    private GameObject[] portals;
     private int rotation;
     private float pi = 3.14159f;
     private float x;
@@ -27,6 +29,7 @@ public class Move : MonoBehaviour
     {
         position = Positions.OnMid;
         orientation = 1;
+        portals = GameObject.FindGameObjectsWithTag("Rotate");
     }
     public enum Positions
     {
@@ -46,7 +49,10 @@ public class Move : MonoBehaviour
             ball.transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * speed * 360 / (pi * 2.5f));
         }
         */
-        portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
+        foreach (GameObject portal in portals)
+        {
+            portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
+        }
         x = 0;
 
         if (Input.GetKeyDown(KeyCode.A) && position != Positions.OnLeft  && !moving)
@@ -91,6 +97,7 @@ public class Move : MonoBehaviour
             transform.position = new Vector3(-14, transform.position.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0, 180, 0);
             orientation = -1;
+            door.transform.DOMoveX(door.transform.position.x - 12, 24f * Time.deltaTime * speed * 2);
         }
         else if (other.tag == "Respawn")
         {
