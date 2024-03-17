@@ -11,6 +11,7 @@ public class Move : MonoBehaviour
     public float speed = 10;
     public Positions position;
     public GameObject door;
+    public GameObject crate;
 
     private GameObject[] portals;
     private int rotation;
@@ -98,6 +99,7 @@ public class Move : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
             orientation = -1;
             door.transform.DOMoveX(door.transform.position.x - 12, 24f * Time.deltaTime * speed * 2);
+            crate.GetComponent<Rigidbody>().isKinematic = false;
         }
         else if (other.tag == "Respawn")
         {
