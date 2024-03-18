@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Move : MonoBehaviour
     //private float y=0;
     private bool moving = false;
     private int orientation = 1; //-1 on turning
+    public int currentSceneIndex;
+    public int sceneMultiplier = 1;
     
     /*
     private bool onLeft = false;
@@ -35,6 +38,14 @@ public class Move : MonoBehaviour
         //y = 0;
         portals = GameObject.FindGameObjectsWithTag("Rotate");
         coins = GameObject.FindGameObjectsWithTag("Coin");
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        if(currentSceneIndex == 1)
+        {
+            orientation = -1;
+            sceneMultiplier = -1;
+        }
+        
     }
     public enum Positions
     {
@@ -56,12 +67,12 @@ public class Move : MonoBehaviour
         */
         foreach (GameObject portal in portals)
         {
-            portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
+            //portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
         }
 
         foreach (GameObject coin in coins)
         {
-            coin.transform.Rotate(new Vector3(0, max, zaxis) * Time.deltaTime);
+            //coin.transform.Rotate(new Vector3(0, max, zaxis) * Time.deltaTime);
         }
         //x = 0;
 
@@ -92,8 +103,8 @@ public class Move : MonoBehaviour
             moving = true;
         }
 
-        player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-        transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * speed * 360 / (pi * 2.5f));
+        player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed * sceneMultiplier);
+        transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * speed * 360 * sceneMultiplier / (pi * 2.5f));
     }
 
     private void OnTriggerEnter(Collider other)
