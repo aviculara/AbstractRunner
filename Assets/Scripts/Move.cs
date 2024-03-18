@@ -67,12 +67,12 @@ public class Move : MonoBehaviour
         */
         foreach (GameObject portal in portals)
         {
-            //portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
+            portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
         }
 
         foreach (GameObject coin in coins)
         {
-            //coin.transform.Rotate(new Vector3(0, max, zaxis) * Time.deltaTime);
+            coin.transform.Rotate(new Vector3(0, max, zaxis) * Time.deltaTime);
         }
         //x = 0;
 
