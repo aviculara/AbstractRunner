@@ -1887,6 +1887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366649037}
   - component: {fileID: 366649036}
+  - component: {fileID: 366649038}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1930,6 +1931,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366649038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366649035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941f52d53d2dbdc44b7d10440f9a0e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alight: {fileID: 682575143}
 --- !u!1 &374720436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,13 +3721,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682575143}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13986291, y: -0.2541978, z: 0.035173234, w: 0.9563392}
+  m_LocalRotation: {x: 0.6770264, y: -0.18460277, z: 0.18140864, w: 0.688947}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 16.582, y: -29.804, z: -0.229}
+  m_LocalEulerAnglesHint: {x: 89, y: -30, z: 0}
 --- !u!1 &699537007
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,19 +5907,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 915980759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 366649036}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Win
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &915980759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6635,7 +6637,6 @@ GameObject:
   - component: {fileID: 1108767893}
   - component: {fileID: 1108767896}
   - component: {fileID: 1108767895}
-  - component: {fileID: 1108767894}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6658,19 +6659,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1472829274}
   m_LocalEulerAnglesHint: {x: 27, y: 180, z: 0}
---- !u!114 &1108767894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108767892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 941f52d53d2dbdc44b7d10440f9a0e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!81 &1108767895
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8219,7 +8207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4113818417770440430, guid: 528f6c40ba01da34f96f492e501fd927, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.01
+      value: -7.34
       objectReference: {fileID: 0}
     - target: {fileID: 4113818417770440430, guid: 528f6c40ba01da34f96f492e501fd927, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8416,7 +8404,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 366649036}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: RestartLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

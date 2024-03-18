@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
         winPanel.SetActive(false);
         pausePanel.SetActive(false);
         inGameButtons.SetActive(true);
+        //score = PlayerPrefs.GetInt("Score");
     }
 
     public void Win()
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
             print("not new");
             newHighscoreText.SetActive(false);
         }
+        //PlayerPrefs.SetInt("Score", score);
         
     }
 
@@ -109,16 +111,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         inGameButtons.SetActive(false);
         gameOverPanel.SetActive(true);
+        //PlayerPrefs.SetInt("Score", 0);
     }
 
     public void LoadLevel2()
     {
+        winPanel.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
-    public void Restart()
+    public void RestartLevel1()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void RestartLevel2()
+    {
+        SceneManager.LoadScene(1);
     }
     public void IncreaseScore(int addedPoints)
     {
