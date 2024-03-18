@@ -20,7 +20,7 @@ public class Move : MonoBehaviour
     private GameObject[] coins;
     private int rotation;
     private float pi = 3.14159f;
-    private float x;
+    //private float y=0;
     private bool moving = false;
     private int orientation = 1; //-1 on turning
     
@@ -34,6 +34,7 @@ public class Move : MonoBehaviour
     {
         position = Positions.OnMid;
         orientation = 1;
+        //y = 0;
         portals = GameObject.FindGameObjectsWithTag("Rotate");
         coins = GameObject.FindGameObjectsWithTag("Coin");
     }
@@ -64,7 +65,7 @@ public class Move : MonoBehaviour
         {
             coin.transform.Rotate(new Vector3(0, max, zaxis) * Time.deltaTime);
         }
-        x = 0;
+        //x = 0;
 
         if (Input.GetKeyDown(KeyCode.A) && position != Positions.OnLeft  && !moving)
         {
@@ -94,7 +95,7 @@ public class Move : MonoBehaviour
         }
 
         player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-        transform.Rotate(new Vector3(1, 0, x) * Time.deltaTime * speed * 360 / (pi * 2.5f));
+        transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * speed * 360 / (pi * 2.5f));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -103,6 +104,7 @@ public class Move : MonoBehaviour
         if (other.tag == "Portal")
         {
             //speed = 0;
+            //y = 0;
             player.transform.position = new Vector3(-14, player.transform.position.y, player.transform.position.z);
             player.transform.rotation = Quaternion.Euler(0, 180, 0);
             transform.position = new Vector3(-14, transform.position.y, transform.position.z);
@@ -116,12 +118,20 @@ public class Move : MonoBehaviour
             other.gameObject.SetActive(false);
             
         }
+        /*
+        else if (other.CompareTag("Ramp"))
+        {
+            y = 0.753554f;
+        }
+        */
         else
         {
             speed = 0;
         }
         
     }
+
+    
 
     private void stopMove()
     {

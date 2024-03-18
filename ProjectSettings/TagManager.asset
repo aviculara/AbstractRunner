@@ -7,15 +7,16 @@ TagManager:
   - Portal
   - Rotate
   - Coin
+  - Ramp
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Roads
   - Water
   - UI
-  - 
-  - 
+  - Obstacles
+  - Sphere
   - 
   - 
   - 
