@@ -11,7 +11,9 @@ public class Move : MonoBehaviour
     //public GameObject portal;
     public float speed = 10;
     public Positions position;
+    public int sceneMultiplier = 1;
 
+    [Header("Debug Params")]
     public float max = 23;
     public float zaxis = 90;
 
@@ -23,7 +25,7 @@ public class Move : MonoBehaviour
     private bool moving = false;
     private int orientation = 1; //-1 on turning
     public int currentSceneIndex;
-    public int sceneMultiplier = 1;
+    
     
     /*
     private bool onLeft = false;
@@ -58,13 +60,7 @@ public class Move : MonoBehaviour
     {
         //1m -> 360/2pi*r
         //pi = 3.14159
-        /*
-        if(Input.GetKey(KeyCode.W))
-        {
-            player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-            ball.transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * speed * 360 / (pi * 2.5f));
-        }
-        */
+
         foreach (GameObject portal in portals)
         {
             portal.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 60);
@@ -76,7 +72,7 @@ public class Move : MonoBehaviour
         }
         //x = 0;
 
-        if (Input.GetKeyDown(KeyCode.A) && position != Positions.OnLeft  && !moving)
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && position != Positions.OnLeft && !moving)
         {
             if(position == Positions.OnMid)
             {
@@ -89,7 +85,7 @@ public class Move : MonoBehaviour
             transform.DOMoveX(transform.position.x - 4 * orientation, 0.25f).OnComplete(stopMove);
             moving = true;
         }
-        else if(Input.GetKeyDown(KeyCode.D) && position != Positions.OnRight && !moving)
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && position != Positions.OnRight && !moving)
         {
             if (position == Positions.OnMid)
             {
