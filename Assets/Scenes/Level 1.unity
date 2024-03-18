@@ -7885,7 +7885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1642524919}
-  speed: 5
+  speed: 6
   position: 0
   sceneMultiplier: 1
   max: 30
@@ -13143,7 +13143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
-  manualHighscore: 3
+  manualHighscore: 11
   newHighscoreText: {fileID: 812090097}
   startPanel: {fileID: 1034293343}
   gameOverPanel: {fileID: 139916770}

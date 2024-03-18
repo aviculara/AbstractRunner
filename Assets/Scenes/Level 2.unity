@@ -1938,7 +1938,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366649035}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 941f52d53d2dbdc44b7d10440f9a0e60, type: 3}
   m_Name: 
@@ -3721,13 +3721,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682575143}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6770264, y: -0.18460277, z: 0.18140864, w: 0.688947}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.13443089, y: -0.2563002, z: 0.03602064, w: 0.9565255}
+  m_LocalPosition: {x: 10, y: -68, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 89, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 16, y: -30, z: 0}
 --- !u!1 &699537007
 GameObject:
   m_ObjectHideFlags: 0
