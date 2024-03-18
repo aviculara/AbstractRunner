@@ -26,7 +26,7 @@ public class Move : MonoBehaviour
     private int orientation = 1; //-1 on turning
     public int currentSceneIndex;
 
-    private GameManager myGameManager;
+    public GameManager myGameManager;
     /*
     private bool onLeft = false;
     private bool onRight = false;
@@ -47,13 +47,14 @@ public class Move : MonoBehaviour
             orientation = -1;
             sceneMultiplier = -1;
         }
-
+        /*
         myGameManager = FindObjectOfType<GameManager>();
         if(myGameManager = null)
         {
             print("Game manager not found.");
 
         }
+        */
 
     }
     public enum Positions
@@ -125,6 +126,7 @@ public class Move : MonoBehaviour
         }
         else if (other.CompareTag("Coin"))
         {
+            myGameManager.IncreaseScore(1);
             other.gameObject.SetActive(false);
             
         }
@@ -134,9 +136,14 @@ public class Move : MonoBehaviour
             y = 0.753554f;
         }
         */
+        else if (other.CompareTag("Finish"))
+        {
+            myGameManager.Win();
+        }
         else
         {
             speed = 0;
+            myGameManager.Lose();
         }
         
     }

@@ -908,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &139916771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 227571447}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1329,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 191.7}
-  m_SizeDelta: {x: 600, y: 150}
+  m_SizeDelta: {x: 1913.8, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227571447
 MonoBehaviour:
@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 402669482}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2664,7 +2664,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 407010643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074966908}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &407010643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2716,7 +2728,7 @@ GameObject:
   - component: {fileID: 408507423}
   m_Layer: 5
   m_Name: Highscore
-  m_TagString: Untagged
+  m_TagString: Highscore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4366,7 +4378,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 641242620}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074966908}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &641242620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5011,7 +5035,7 @@ GameObject:
   - component: {fileID: 731224253}
   m_Layer: 5
   m_Name: Highscore
-  m_TagString: Untagged
+  m_TagString: Highscore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5033,7 +5057,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 150}
+  m_SizeDelta: {x: 1300.6, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731224253
 MonoBehaviour:
@@ -7208,7 +7232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &985188690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7284,7 +7308,7 @@ GameObject:
   - component: {fileID: 988197336}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7496,7 +7520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1034293344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7877,6 +7901,7 @@ MonoBehaviour:
   max: 30
   zaxis: 90
   currentSceneIndex: 0
+  myGameManager: {fileID: 2074966908}
 --- !u!114 &1090618879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8759,7 +8784,7 @@ GameObject:
   - component: {fileID: 1230970130}
   m_Layer: 5
   m_Name: Highscore
-  m_TagString: Untagged
+  m_TagString: Highscore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9089,7 +9114,7 @@ GameObject:
   - component: {fileID: 1307837220}
   m_Layer: 5
   m_Name: Highscore
-  m_TagString: Untagged
+  m_TagString: Highscore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9824,7 +9849,7 @@ GameObject:
   - component: {fileID: 1440957325}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11765,7 +11790,7 @@ GameObject:
   - component: {fileID: 1798829830}
   m_Layer: 5
   m_Name: Highscore
-  m_TagString: Untagged
+  m_TagString: Highscore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12391,7 +12416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1934342636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2074966908}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1934342636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13081,7 +13118,7 @@ GameObject:
   - component: {fileID: 2074966907}
   - component: {fileID: 2074966908}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13116,6 +13153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
+  manualHighscore: 0
+  newHighscoreText: {fileID: 812090097}
   startPanel: {fileID: 1034293343}
   gameOverPanel: {fileID: 139916770}
   winPanel: {fileID: 801533139}
@@ -13434,7 +13473,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2074966907}
   - {fileID: 705507995}
   - {fileID: 1642524920}
   - {fileID: 1371327067}
@@ -13448,3 +13486,4 @@ SceneRoots:
   - {fileID: 743801240}
   - {fileID: 1399124331}
   - {fileID: 1573169009}
+  - {fileID: 2074966907}
