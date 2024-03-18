@@ -13153,7 +13153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
-  manualHighscore: 0
+  manualHighscore: 3
   newHighscoreText: {fileID: 812090097}
   startPanel: {fileID: 1034293343}
   gameOverPanel: {fileID: 139916770}
@@ -13473,6 +13473,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2074966907}
   - {fileID: 705507995}
   - {fileID: 1642524920}
   - {fileID: 1371327067}
@@ -13486,4 +13487,3 @@ SceneRoots:
   - {fileID: 743801240}
   - {fileID: 1399124331}
   - {fileID: 1573169009}
-  - {fileID: 2074966907}

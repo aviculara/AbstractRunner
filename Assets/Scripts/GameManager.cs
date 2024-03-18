@@ -28,21 +28,17 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Highscore", manualHighscore);
         }
         highscore = PlayerPrefs.GetInt("Highscore");
-        print("playerprefs is:" + highscore.ToString());
         writeHighscore();
     }
 
     private void writeHighscore()
     {
-        print("hi");
         foreach (GameObject hsObject in highscoreTexts)
         {
-            print("hello");
+
             TextMeshProUGUI hsTMP = hsObject.GetComponent<TextMeshProUGUI>();
-            print(hsTMP.text);
-            print(highscore);
             hsTMP.text = "Highscore: " + highscore.ToString();
-            print(hsTMP.text);
+
         }
     }
     
@@ -61,7 +57,7 @@ public class GameManager : MonoBehaviour
         getHighscore();
         score = 0;
         startPanel.SetActive(true);
-        newHighscoreText.SetActive(false);
+        //newHighscoreText.SetActive(false);
         gameOverPanel.SetActive(false);
         winPanel.SetActive(false);
         pausePanel.SetActive(false);
@@ -100,9 +96,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         inGameButtons.SetActive(false);
         winPanel.SetActive(true);
-        if(newHS)
+        if(!newHS)
         {
-            newHighscoreText.SetActive(true);
+            print("not new");
+            newHighscoreText.SetActive(false);
         }
         
     }
@@ -126,7 +123,6 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore(int addedPoints)
     {
         score = score + addedPoints;
-        print("score increased");
 
         foreach (GameObject scoreObject in scoreTexts)
         {
@@ -137,6 +133,7 @@ public class GameManager : MonoBehaviour
         if (score > highscore)
         {
             newHS = true;
+            highscore = score;
             PlayerPrefs.SetInt("Highscore", score);
             writeHighscore();
         }
