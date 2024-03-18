@@ -25,8 +25,8 @@ public class Move : MonoBehaviour
     private bool moving = false;
     private int orientation = 1; //-1 on turning
     public int currentSceneIndex;
-    
-    
+
+    private GameManager myGameManager;
     /*
     private bool onLeft = false;
     private bool onRight = false;
@@ -47,7 +47,14 @@ public class Move : MonoBehaviour
             orientation = -1;
             sceneMultiplier = -1;
         }
-        
+
+        myGameManager = FindObjectOfType<GameManager>();
+        if(myGameManager = null)
+        {
+            print("Game manager not found.");
+
+        }
+
     }
     public enum Positions
     {
