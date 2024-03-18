@@ -5106,6 +5106,7 @@ GameObject:
   - component: {fileID: 1090618873}
   - component: {fileID: 1090618877}
   - component: {fileID: 1090618878}
+  - component: {fileID: 1090618879}
   m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
@@ -5241,10 +5242,22 @@ MonoBehaviour:
   player: {fileID: 1642524919}
   speed: 5
   position: 0
-  door: {fileID: 1953423739}
-  crate: {fileID: 833940041}
   max: 30
   zaxis: 90
+--- !u!114 &1090618879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090618872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17136614a599f7241a8b312ca29e4705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 1953423739}
+  crate: {fileID: 833940041}
 --- !u!1001 &1120070989
 PrefabInstance:
   m_ObjectHideFlags: 0

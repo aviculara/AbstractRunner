@@ -10,8 +10,6 @@ public class Move : MonoBehaviour
     //public GameObject portal;
     public float speed = 10;
     public Positions position;
-    public GameObject door;
-    public GameObject crate;
 
     public float max = 23;
     public float zaxis = 90;
@@ -110,8 +108,6 @@ public class Move : MonoBehaviour
             transform.position = new Vector3(-14, transform.position.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0, 180, 0);
             orientation = -1;
-            door.transform.DOMoveX(door.transform.position.x - 12, 24f * Time.deltaTime * speed * 2);
-            crate.GetComponent<Rigidbody>().isKinematic = false;
         }
         else if (other.CompareTag("Coin"))
         {
