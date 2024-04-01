@@ -13,6 +13,8 @@ public class MoveGuy : MonoBehaviour
     public int sceneMultiplier = 1;
     public float sideMove=3.5f;
     public float sideTime=0.45f;
+    public float jumpDist;
+    public float jumpTime;
 
     [Header("Debug Params")]
     public float max = 23;
@@ -77,7 +79,6 @@ public class MoveGuy : MonoBehaviour
             }
             transform.DOMoveX(transform.position.x - sideMove * orientation, sideTime).OnComplete(stopMove);
             moving = true;
-            animator.SetBool("MoveLeft", true);
             animator.SetTrigger("LeftTrig");
         }
         else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && position != Positions.OnRight && !moving)
@@ -92,8 +93,15 @@ public class MoveGuy : MonoBehaviour
             }
             transform.DOMoveX(transform.position.x + sideMove * orientation, sideTime).OnComplete(stopMove);
             moving = true;
-            animator.SetBool("MoveRight",true);
             animator.SetTrigger("RightTrig");
+        }
+        else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && position != Positions.OnRight && !moving)
+        {
+
+            transform.DOMoveY(transform.position.y + jumpDist , jumpTime).OnComplete(Descend).SetEase(Ease.Linear);
+            //moving = true;
+            animator.SetTrigger("Jump");
+            //transform.DOJump(transform.position, jumpDist, 1, jumpTime);
         }
 
         player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed * sceneMultiplier);
@@ -101,8 +109,11 @@ public class MoveGuy : MonoBehaviour
     private void stopMove()
     {
         moving = false;
-        animator.SetBool("MoveRight", false);
-        animator.SetBool("MoveLeft", false);
+    }
+
+    private void Descend()
+    {
+        transform.DOMoveY(transform.position.y - jumpDist, jumpTime).SetEase(Ease.Linear);
     }
     private void OnTriggerEnter(Collider other)
     {
