@@ -16,6 +16,7 @@ public class MoveGuy : MonoBehaviour
     public float sideTime=0.45f;
     public float jumpDist;
     public float jumpTime;
+    public float jumpForce;
 
     [Header("Debug Params")]
     public float max = 23;
@@ -32,6 +33,8 @@ public class MoveGuy : MonoBehaviour
     public GameManager myGameManager;
 
     private Animator animator;
+    private Rigidbody rb;
+    private CapsuleCollider playercollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,8 @@ public class MoveGuy : MonoBehaviour
         coins = GameObject.FindGameObjectsWithTag("Coin");
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        playercollider = GetComponent<CapsuleCollider>();
         if (currentSceneIndex == 1)
         {
             orientation = -1;
@@ -100,11 +105,24 @@ public class MoveGuy : MonoBehaviour
         else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !jumping)
         {
 
-            transform.DOMoveY(transform.position.y + jumpDist , jumpTime).OnComplete(Descend).SetEase(Ease.Linear);
-            jumping = true;
+            //transform.DOMoveY(transform.position.y + jumpDist , jumpTime).OnComplete(Descend).SetEase(Ease.Linear);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //jumping = true;
             //moving = true;
             animator.SetTrigger("Jump");
             //transform.DOJump(transform.position, jumpDist, 1, jumpTime);
+        }
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            jumping = true;
+            print("im jumpng");
+            //playercollider.center = new Vector3()
+            playercollider.center = new Vector3(0.05f, 2.11f, -0.18f);
+        }
+        else
+        {
+            playercollider.center = new Vector3(0.05f, 0.83f, -0.18f);
+            jumping = false;
         }
 
         player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed * sceneMultiplier);
@@ -116,12 +134,11 @@ public class MoveGuy : MonoBehaviour
 
     private void Descend()
     {
-        transform.DOMoveY(transform.position.y - jumpDist, jumpTime).SetEase(Ease.Linear);
+        //transform.DOMoveY(transform.position.y - jumpDist, jumpTime).SetEase(Ease.Linear);
         jumping = false;
     }
     private void OnTriggerEnter(Collider other)
     {
-        print("colliding");
         if (other.tag == "Portal")
         {
             //speed = 0;
@@ -163,4 +180,5 @@ public class MoveGuy : MonoBehaviour
         myGameManager.Lose();
 
     }
+
 }

@@ -3904,18 +3904,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 588646052}
-  speed: 5
+  speed: 6
   position: 0
   sceneMultiplier: 1
   sideMove: 3.5
   sideTime: 0.45
-  jumpDist: 4
-  jumpTime: 0.8
+  jumpDist: 3
+  jumpTime: 0.7
+  jumpForce: 5
   max: 23
   zaxis: 90
   currentSceneIndex: 0
   myGameManager: {fileID: 2074966908}
---- !u!54 &594282594
+--- !u!54 &594282598
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3940,9 +3941,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &594282595
+--- !u!136 &594282599
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3959,12 +3960,12 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3120914
-  m_Height: 1.878183
+  m_Radius: 0.25
+  m_Height: 1.53
   m_Direction: 1
-  m_Center: {x: 0.01036799, y: 0.9440915, z: -0.05619961}
+  m_Center: {x: 0.05, y: 0.83, z: -0.18}
 --- !u!1 &599396959
 GameObject:
   m_ObjectHideFlags: 0
@@ -12994,6 +12995,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 52398659}
     m_Modifications:
+    - target: {fileID: 53842010431173306, guid: e8020fe6c790ea04c94374f24a44de8f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968823018044576854, guid: e8020fe6c790ea04c94374f24a44de8f, type: 3}
+      propertyPath: m_TagString
+      value: EditorOnly
+      objectReference: {fileID: 0}
     - target: {fileID: 5370516197275242951, guid: e8020fe6c790ea04c94374f24a44de8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14072,6 +14081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Painted Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 2645803314855795915, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3457665776850798193, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -14090,7 +14103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3457665776850798193, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: -1.29
       objectReference: {fileID: 0}
     - target: {fileID: 3457665776850798193, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14145,10 +14158,10 @@ PrefabInstance:
       addedObject: {fileID: 594282592}
     - targetCorrespondingSourceObject: {fileID: 2645803314855795915, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 594282594}
+      addedObject: {fileID: 594282598}
     - targetCorrespondingSourceObject: {fileID: 2645803314855795915, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 594282595}
+      addedObject: {fileID: 594282599}
   m_SourcePrefab: {fileID: 100100000, guid: a075d748770e8ef4db2d6b7b610370db, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
