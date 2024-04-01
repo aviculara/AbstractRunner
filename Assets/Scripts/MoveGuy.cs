@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
+
 public class MoveGuy : MonoBehaviour
 {
     public GameObject player;
@@ -24,6 +25,7 @@ public class MoveGuy : MonoBehaviour
     private GameObject[] coins;
     //private float y=0;
     private bool moving = false;
+    private bool jumping = false;
     private int orientation = 1; //-1 on turning
     public int currentSceneIndex;
 
@@ -95,10 +97,11 @@ public class MoveGuy : MonoBehaviour
             moving = true;
             animator.SetTrigger("RightTrig");
         }
-        else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && position != Positions.OnRight && !moving)
+        else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !jumping)
         {
 
             transform.DOMoveY(transform.position.y + jumpDist , jumpTime).OnComplete(Descend).SetEase(Ease.Linear);
+            jumping = true;
             //moving = true;
             animator.SetTrigger("Jump");
             //transform.DOJump(transform.position, jumpDist, 1, jumpTime);
@@ -114,6 +117,7 @@ public class MoveGuy : MonoBehaviour
     private void Descend()
     {
         transform.DOMoveY(transform.position.y - jumpDist, jumpTime).SetEase(Ease.Linear);
+        jumping = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -147,8 +151,16 @@ public class MoveGuy : MonoBehaviour
         else
         {
             speed = 0;
-            myGameManager.Lose();
+            animator.SetTrigger("Fall");
+            StartCoroutine(LoseAnim());
         }
+
+    }
+
+    IEnumerator LoseAnim()
+    {
+        yield return new WaitForSeconds(2);
+        myGameManager.Lose();
 
     }
 }
