@@ -78,6 +78,7 @@ public class MoveGuy : MonoBehaviour
             transform.DOMoveX(transform.position.x - sideMove * orientation, sideTime).OnComplete(stopMove);
             moving = true;
             animator.SetBool("MoveLeft", true);
+            animator.SetTrigger("LeftTrig");
         }
         else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && position != Positions.OnRight && !moving)
         {
@@ -92,6 +93,7 @@ public class MoveGuy : MonoBehaviour
             transform.DOMoveX(transform.position.x + sideMove * orientation, sideTime).OnComplete(stopMove);
             moving = true;
             animator.SetBool("MoveRight",true);
+            animator.SetTrigger("RightTrig");
         }
 
         player.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed * sceneMultiplier);
