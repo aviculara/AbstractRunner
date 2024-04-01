@@ -115,7 +115,6 @@ public class MoveGuy : MonoBehaviour
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
             jumping = true;
-            print("im jumpng");
             //playercollider.center = new Vector3()
             playercollider.center = new Vector3(0.05f, 2.11f, -0.18f);
         }
@@ -141,6 +140,7 @@ public class MoveGuy : MonoBehaviour
     {
         if (other.tag == "Portal")
         {
+            print("yep");
             //speed = 0;
             //y = 0;
             player.transform.position = new Vector3(-14, player.transform.position.y, player.transform.position.z);
