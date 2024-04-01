@@ -3909,6 +3909,8 @@ MonoBehaviour:
   sceneMultiplier: 1
   sideMove: 3.5
   sideTime: 0.45
+  jumpDist: 4
+  jumpTime: 0.8
   max: 23
   zaxis: 90
   currentSceneIndex: 0
@@ -9441,7 +9443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 233dede0002eec743a7a8d52aaf9e8cf, type: 3}
       propertyPath: m_Name
-      value: sci-fi-supersoldier-game-ready-animated@Jog Forward
+      value: GameReady with Materials
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 233dede0002eec743a7a8d52aaf9e8cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2654713335656134247, guid: 233dede0002eec743a7a8d52aaf9e8cf, type: 3}
       propertyPath: m_IsActive
